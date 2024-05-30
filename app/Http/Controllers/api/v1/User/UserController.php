@@ -10,9 +10,9 @@ class UserController extends Controller
 {
     public function getUser()
     {
-        $data = User::all();
+        $data = User::paginate(20);
         return response()->json([
-            'data' => $data
+            'data' => $data->items()
         ]);
     }
 }
